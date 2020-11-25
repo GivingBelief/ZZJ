@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <script>
+        // 自适应Rem
+        function setRem(val) {
+            function toggle() {
+                var width = document.documentElement.offsetWidth
+                var fontSize = width / (val || 10)
+                document.documentElement.style.fontSize = fontSize + 'px'
+            }
+            toggle()
+            window.addEventListener('resize', toggle)
+            document.addEventListener('DOMContentLoaded', toggle)
+        };
+        setRem()
+    </script>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <div>我是首页</div>
+</body>
+</html>
+<script src="js/index.js"></script>
