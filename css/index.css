@@ -1,3 +1,78 @@
-div{
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    list-style: none;
+}
+
+.oul {
+    width: 100%;
+    font-size: 0.3rem;
+    display: flex;
+    justify-content: space-around;
+    background-color: skyblue;
+    /*padding-bottom: 0.067rem;*/
+}
+
+.oul li {
+    height: 1.333rem;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    color: #fff;
+    justify-content: center;
+}
+
+.oul li:last-of-type img {
+    margin-right: 0.107rem;
+}
+
+.oul li img {
+    width: 0.8rem;
+    height: 0.8rem;
+}
+
+.li_active {
+    border-bottom: 0.067rem solid #f00;
+    color: #f00 !important;
+    font-size: 0.5rem;
+    letter-spacing: 0.067rem;
+    font-weight: bold;
+}
+
+.list ul {
     font-size: 0.4rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0.313rem 0.313rem 0 0.313rem;
+}
+
+.list ul li {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.5rem;
+}
+
+.list ul li .border_div {
+    width: 2.667rem;
+    height: 2.667rem;
+    border-radius: 0.267rem;
+    overflow: hidden;
+    margin-bottom: 0.2rem;
+}
+
+.list ul li .albummid_img {
+    width: 2.667rem;
+    height: 2.667rem;
+}
+
+.list ul li .overflow_span {
+    display: inline-block;
+    width: 2.667rem;
+    white-space: nowrap; /*不允许换行*/
+    overflow: hidden; /*超出隐藏*/
+    text-overflow: ellipsis; /*文本超出三点代替*/
+    text-align: center;
+    font-size: 0.5rem;
 }

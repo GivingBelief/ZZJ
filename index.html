@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <title>首页</title>
+    <link rel="shortcut icon" href="./images/ZT.png" type="image/x-icon"/>
     <script>
         // 自适应Rem
         function setRem(val) {
@@ -11,6 +13,7 @@
                 var fontSize = width / (val || 10)
                 document.documentElement.style.fontSize = fontSize + 'px'
             }
+
             toggle()
             window.addEventListener('resize', toggle)
             document.addEventListener('DOMContentLoaded', toggle)
@@ -20,7 +23,42 @@
     <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-    <div>我是首页</div>
+<div id="app">
+    <ul class="oul">
+        <li :class="{'li_active':li_active_num==0}" @click="music_click">
+            <img v-if="li_active_num==0" src="./images/music_red.png" alt="">
+            <img v-else src="./images/music.png" alt="">
+            最新
+        </li>
+        <li :class="{'li_active':li_active_num==1}" @click="recommend_click">
+            <img v-if="li_active_num==1" src="./images/recommend_red.png" alt="">
+            <img v-else src="./images/recommend.png" alt="">
+            推荐
+        </li>
+        <li :class="{'li_active':li_active_num==2}" @click="search_click">
+            <img v-if="li_active_num==2" src="./images/search_red.png" alt="">
+            <img v-else src="./images/search.png" alt="">
+            搜索
+        </li>
+        <li :class="{'li_active':li_active_num==3}" @click="We_click">
+            <img v-if="li_active_num==3" src="./images/We_red.png" alt="">
+            <img v-else src="./images/We.png" alt="">
+            世界
+        </li>
+    </ul>
+    <div class="list">
+        <ul>
+            <li v-for="(item,index) in albummidArray" @click="list_song_click(item)">
+                <div class="border_div">
+                    <img class="albummid_img" :src="getImgUrl(item.albummid)" alt="">
+                </div>
+                <span class="overflow_span">{{item.albumname}}</span>
+            </li>
+        </ul>
+    </div>
+</div>
 </body>
 </html>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/vue.min.js"></script>
 <script src="js/index.js"></script>

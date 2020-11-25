@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>首页</title>
+    <link rel="shortcut icon" href="./images/ZT.png" type="image/x-icon"/>
+    <script>
+        // 自适应Rem
+        function setRem(val) {
+            function toggle() {
+                var width = document.documentElement.offsetWidth
+                var fontSize = width / (val || 10)
+                document.documentElement.style.fontSize = fontSize + 'px'
+            }
+
+            toggle()
+            window.addEventListener('resize', toggle)
+            document.addEventListener('DOMContentLoaded', toggle)
+        };
+        setRem()
+    </script>
+    <link rel="stylesheet" href="css/play.css">
+</head>
+<body>
+<div id="app">
+    <!--    <img src="./images/background_img.jpg" class="img_div" alt="">-->
+    <div class="main_box">
+        <div class="background_img"></div>
+        <p class="title_p">{{album_name}}</p>
+        <p class="singing_name">演唱:&nbsp;&nbsp;<span>{{singer_name}}</span></p>
+        <img src="./images/background_img.jpg" class="small_img" alt="">
+        <ul class="lyric_ul">
+            <li>天下</li>
+            <li class="lyric_li_active">作词: 周毅 作曲: 刘吉宁</li>
+            <li>演唱: 张杰</li>
+<!--            <li v-for="(item,index) in lyric">{{item}}</li>-->
+        </ul>
+
+        <div class="speed_of_progress">
+            <div>{{new_start_time}}</div>
+            <div ref="line" class="line">
+                <div :style="{width:operatewidth +'px'}" class="add_line">
+                    <span></span>
+                </div>
+            </div>
+            <div>{{new_end_time}}</div>
+        </div>
+
+        <div class="control_div">
+            <img src="./images/last_song.png" alt="">
+            <div>
+                <img @click="play_click" v-if="play_or_suspend" src="./images/play.png" alt="">
+                <img @click="play_click" v-else src="./images/suspend.png" alt="">
+            </div>
+            <img src="./images/next_song.png" alt="">
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script src="./js/vue.min.js"></script>
+<script src="js/play.js"></script>

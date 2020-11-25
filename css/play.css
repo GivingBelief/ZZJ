@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    list-style: none;
+}
+
+html, body, #app {
+    width: 100%;
+    height: 100%;
+}
+
+.main_box {
+    color: #fff;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.background_img {
+    font-size: 0.4rem;
+    color: #fff;
+    background-image: url('../images/background_img.jpg');
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+
+
+}
+
+.title_p {
+    font-size: 0.533rem;
+    margin-top: 1.333rem;
+    letter-spacing: 0.027rem;
+}
+
+.singing_name {
+    font-size: 0.4rem;
+    margin: 0.167rem 0 1.6rem 0;
+}
+
+.small_img {
+    display: inline-block;
+    width: 6.333rem;
+    height: 6.333rem;
+}
+
+.lyric_li_active {
+    font-size: 0.467rem;
+    color: #CC095B;
+}
+
+.lyric_ul {
+    width: 6.333rem;
+    height: 3rem;
+    overflow: hidden;
+    color: #ccc;
+    font-size: 0.333rem;
+    margin-top: 0.667rem;
+    margin-bottom: 1rem;
+}
+
+.lyric_ul li {
+    width: 6.333rem;
+    text-align: center;
+    margin-bottom: 0.133rem;
+}
+
+.speed_of_progress {
+    font-size: 0.267rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.speed_of_progress .line {
+    width: 7rem;
+    height: 0.027rem;
+    background-color: #999;
+    margin: 0 0.267rem 0 0.3rem;
+    position: relative;
+}
+
+.speed_of_progress .line .add_line {
+    width: 0rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 0.027rem;
+    background-color:#CC095B
+}
+.speed_of_progress .line .add_line span{
+    width: 0.15rem;
+    height: 0.15rem;
+    background-color: #CC095B;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -0.075rem;
+    border-radius: 50%;
+    box-shadow: 0 0 0.133rem #CC095B;
+}
+
+.control_div{
+    width: 6rem;
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: space-around;
+}
+.control_div img{
+    display: inline-block;
+    width:1.1rem;
+    height: 1.1rem;
+
+}
