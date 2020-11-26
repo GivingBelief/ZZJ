@@ -37,14 +37,30 @@ html, body, #app {
 }
 
 .title_p {
+    width: 8rem;
     font-size: 0.533rem;
     margin-top: 1.333rem;
-    letter-spacing: 0.027rem;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.title_p span {
+    display: inline-block;
+    font-size: 0.533rem;
+    text-align: center;
+    color: skyblue;
 }
 
 .singing_name {
+    width: 6rem;
+    /*background-color: #f00;*/
     font-size: 0.4rem;
     margin: 0.167rem 0 1.6rem 0;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    color: skyblue;
 }
 
 .small_img {
@@ -55,7 +71,7 @@ html, body, #app {
 
 .lyric_li_active {
     font-size: 0.467rem;
-    color: #CC095B;
+    color: skyblue;
 }
 
 .lyric_ul {
@@ -95,9 +111,10 @@ html, body, #app {
     left: 0;
     top: 0;
     height: 0.027rem;
-    background-color:#CC095B
+    background-color: #CC095B
 }
-.speed_of_progress .line .add_line span{
+
+.speed_of_progress .line .add_line span {
     width: 0.15rem;
     height: 0.15rem;
     background-color: #CC095B;
@@ -109,15 +126,16 @@ html, body, #app {
     box-shadow: 0 0 0.133rem #CC095B;
 }
 
-.control_div{
+.control_div {
     width: 6rem;
     margin-top: 0.5rem;
     display: flex;
     justify-content: space-around;
 }
-.control_div img{
+
+.control_div img {
     display: inline-block;
-    width:1.1rem;
+    width: 1.1rem;
     height: 1.1rem;
 
 }

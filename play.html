@@ -21,15 +21,16 @@
         setRem()
     </script>
     <link rel="stylesheet" href="css/play.css">
+
 </head>
 <body>
 <div id="app">
     <!--    <img src="./images/background_img.jpg" class="img_div" alt="">-->
     <div class="main_box">
-        <div class="background_img"></div>
-        <p class="title_p">{{album_name}}</p>
+        <div class="background_img" id="background_img"></div>
+        <p class="title_p"><span>{{album_name}}</span></p>
         <p class="singing_name">演唱:&nbsp;&nbsp;<span>{{singer_name}}</span></p>
-        <img src="./images/background_img.jpg" class="small_img" alt="">
+        <img class="small_img" :src="getImgUrl()" alt="">
         <ul class="lyric_ul">
             <li>天下</li>
             <li class="lyric_li_active">作词: 周毅 作曲: 刘吉宁</li>
@@ -59,5 +60,6 @@
 </div>
 </body>
 </html>
+<script src="./js/jquery.min.js"></script>
 <script src="./js/vue.min.js"></script>
 <script src="js/play.js"></script>

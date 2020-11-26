@@ -3,7 +3,9 @@ var vm = new Vue({
     data: {
         music_data: [],
         album_name: '', //演唱歌名
-        singer_name: '',
+        singer_name: '', //演唱者
+        albummid: '',//图片值
+        songmid: '',//歌曲id
         new_start_time: '00:00', // 初始开始时间
         new_end_time: '03:15', // 初始开始时间
         operatewidth: 0,//进度条的进度值
@@ -16,19 +18,21 @@ var vm = new Vue({
 
     mounted() {
         if (localStorage.getItem('every_music_data')) {
+            // 演唱歌名,演唱者
             this.music_data.push(JSON.parse(localStorage.getItem('every_music_data')))
-            // console.log(this.music_data);
             this.album_name = this.music_data[0].albumname
+            this.albummid = this.music_data[0].albummid
+            this.songmid = this.music_data[0].songmid
+            console.log(this.albummid);
+            this.getImgUrl() // 拼接获取小图片地址
+            $('#background_img').css('background-image', 'url(http://y.gtimg.cn/music/photo_new/T002R180x180M000' + this.albummid + '.jpg)') // 修改大背景图地址
             var arrays = []
-            console.log(this.music_data[0].singer.length);
             if (this.music_data[0].singer.length > 1) {
                 for (let i = 0; i < this.music_data[0].singer.length; i++) {
                     var not_last = this.music_data[0].singer[i].name + ' / '
                     arrays.push(not_last)
                 }
-
                 arrays.push(arrays.pop().replace(/[ / ]/g, ''))
-
                 for (let j = 0; j < arrays.length; j++) {
                     this.singer_name += arrays[j]
                 }
@@ -37,12 +41,36 @@ var vm = new Vue({
             }
 
 
+            // let url = 'https://c.y.qq.com/lyric/fcgi-bin/fcg_query_lyric_new.fcg?songmid=' + this.songmid + '&format=json&nobase64=1';
+            // $.ajax({
+            //         url: url,
+            //     type: "get",
+            //     dataType: 'jsonp',
+            //     jsonp: "callback",
+            //     jsonpCallback: "callback",
+            //     headers:{
+            //         referer:'https://c.y.qq.com/',
+            //         host:'c.y.qq.com'
+            //     },
+            //
+            //     success: (res) => {
+            //         console.log(res);
+            //     },
+            //     error: function (e) {
+            //         console.log('error');
+            //     }
+            // });
         } else {
             alert('error')
         }
     },
 
     methods: {
+        // 图片路径
+        getImgUrl() {
+            return "http://y.gtimg.cn/music/photo_new/T002R180x180M000" + this.albummid + ".jpg"
+        },
+
         play_click() {
             this.play_or_suspend = !this.play_or_suspend;
             if (this.play_or_suspend == true) {
@@ -55,6 +83,22 @@ var vm = new Vue({
             } else {
                 clearInterval(this.timer)
             }
+
+            let url = JSON.parse(localStorage.getItem('playArray'))
+            // console.log(url[0].sip[0] + url[0].purl);
+            $.ajax({
+                url: url[0].sip[0]+url[0].purl,
+                type: "get",
+                dataType: 'jsonp',
+                jsonp: "callback",
+                jsonpCallback: "callback",
+                success: (res) => {
+                    console.log(res);
+                },
+                error: function (e) {
+                    console.log('error');
+                }
+            });
         },
         // 数字转化为时间(数字=>00:00)
         showTime(iTimelLength) {
